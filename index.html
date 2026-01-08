@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabBridge | نظام إدارة معامل الأسنان المتكامل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <!-- ============================= -->
+<!--         CUSTOM SCRIPT         -->
+<!-- ============================= -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    /* 
+     *  FEATURE 1: Dynamic Scroll Animations
+     *  Observes elements with 'hidden-anim' class and adds 'visible' class when they enter the viewport.
+    */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: stop observing the element once it's visible
+                // observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden-anim');
+    hiddenElements.forEach(el => observer.observe(el));
+
+    /* 
+     *  FEATURE 2: Smart FAQ Accordion
+     *  Closes other <details> elements when one is opened.
+    */
+    const allFaqItems = document.querySelectorAll('.faq-item');
+    allFaqItems.forEach(item => {
+        item.addEventListener('toggle', (event) => {
+            // If the item is being opened, close all others
+            if (item.open) {
+                allFaqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.open) {
+                        otherItem.removeAttribute('open');
+                    }
+                });
+            }
+        });
+    });
+
+    /*
+     * Note: Smooth scrolling is handled by the CSS `scroll-behavior: smooth;`.
+     * The code below is a fallback for older browsers or more complex scenarios if needed,
+     * but for this site, the CSS approach is cleaner and sufficient.
+     * We'll keep the JS simple for now.
+    */
+
+});
+</script>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="images/logowithname_outnew.png" alt="LabBridge Logo مع الاسم" class="logo-img"> <!-- لوغو مع الاسم -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#workflow">دورة العمل</a></li>
+                <li><a href="#platforms">المنصات</a></li>
+                <li><a href="#pricing">الأسعار</a></li>
+            </ul>
+        </nav>
+        <a href="#pricing" class="btn-primary">ابدأ 14 يوم مجاناً</a>
+    </div>
+</header>
+
+
+    <section class="hero">
+    <div class="container">
+        <!-- New Flexbox Grid Container -->
+        <div class="hero-grid">
+            
+            <!-- Column 1: Text Content (Right) -->
+            <div class="hero-content">
+               <h1>
+    الجسر الرقمي الذي يربط <br>
+    <span>معمل الأسنان بعيادة الأسنان</span>
+</h1>
+<p>
+    وداعًا للفوضى، التأخير، وضياع الحالات.
+    نظام واحد يربط الطبيب، الفني، المندوب والمحاسب
+    لإدارة الطلبات، التتبع، والفوترة بوضوح كامل.
+</p>
+
+                <div class="hero-btns">
+                    <a href="#pricing" class="btn-primary">اشترك الآن</a>
+                    <a href="#workflow" class="btn-secondary">كيف يعمل؟</a>
+                </div>
+            </div>
+
+            <!-- Column 2: Mockup (Left) -->
+            <div class="hero-mockup">
+                <img src="images/labbridge-laptop.png" alt="تطبيق LabBridge على لابتوب" class="mockup-laptop">
+                <img src="images/labbridge-phone.png" alt="تطبيق LabBridge على هاتف" class="mockup-phone">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <section id="features" class="features">
+    <div class="container">
+        <h2 class="section-title">وداعًا للمكالمات والواتساب… كل شغل المعمل في مكان واحد</h2>
+
+        <div class="features-grid">
+
+            <!-- 1 -->
+           <div class="feature-card hidden-anim">
+                <i class="fas fa-notes-medical"></i>
+                <h3>الطلب يوصل بدون مكالمة</h3>
+                <p>
+                    الطبيب يطلب مباشرة من التطبيق بكل التفاصيل، بدون اتصالات، بدون رسائل، وبدون نسيان.
+                </p>
+            </div>
+
+            <!-- 2 -->
+            <div class="feature-card hidden-anim">
+                <i class="fas fa-qrcode"></i>
+                <h3>كل حالة لها QR</h3>
+                <p>
+                    رمز QR فريد يُطبع على الطبعة، مسح واحد ويطلع اسم المريض، رقم الحالة، وملف المريض.
+                </p>
+            </div>
+
+            <!-- 3 -->
+            <div class="feature-card hidden-anim">
+                <i class="fas fa-users-cog"></i>
+                <h3>كل فني يعرف شغله</h3>
+                <p>
+                    توزيع الحالات حسب التخصص (زيركون، كاد كام، شمع…) والحالة تمشي مرحلة مرحلة بوضوح.
+                </p>
+            </div>
+
+            <!-- 4 -->
+            <div class="feature-card hidden-anim">
+                <i class="fas fa-bell"></i>
+                <h3>إشعارات بدون ما تسأل</h3>
+                <p>
+                    إشعارات تلقائية للطبيب، المعمل، والمندوب بكل تحديث… بدون “وين وصل الأوردر؟”.
+                </p>
+            </div>
+
+            <!-- 5 -->
+            <div class="feature-card hidden-anim">
+                <i class="fas fa-tags"></i>
+                <h3>سعر مختلف لكل طبيب</h3>
+                <p>
+                    حدد أسعار خاصة لكل طبيب أو عيادة بسهولة، حسب شغلك واتفاقك معهم.
+                </p>
+            </div>
+
+            <!-- 6 -->
+            <div class="feature-card hidden-anim">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>فواتير بدون صداع</h3>
+                <p>
+                    إصدار فواتير، إضافة دفعات، وتقارير متوافقة مع متطلبات هيئة الزكاة والضريبة.
+                </p>
+            </div>
+
+       <div class="feature-card hidden-anim">
+    <i class="fas fa-file-upload"></i>
+    <h3>رفع ملفات STL للعمل عليها</h3>
+    <p>
+        الطبيب يمكنه رفع ملفات STL مباشرة من العيادة، والفنيون في المعمل يقومون بالعمل عليها بكل دقة باستخدام النظام، مما يسهل عملية التصميم والتصنيع الرقمي.
+    </p>
+</div>
+
+            <!-- 8 -->
+            <div class="feature-card hidden-anim">
+                <i class="fas fa-shield-alt"></i>
+                <h3>كل واحد بصلاحياته</h3>
+                <p>
+                 تحكم كامل في صلاحيات الطبيب، الفني، المحاسب، والمندوب… كل واحد يشوف اللي يخصه, يعني لاتخاف ان الفني يشوف اسم الطبيب.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+   <div class="stat-box hidden-anim">
+    <div class="container">
+        <h2 class="section-title">موثوق به من معامل أسنان حقيقية</h2>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <h3>+120</h3>
+                <p>معمل أسنان نشط</p>
+            </div>
+            <div class="stat-box">
+                <h3>+18,000</h3>
+                <p>حالة تم تتبعها عبر النظام</p>
+            </div>
+            <div class="stat-box">
+                <h3>40%</h3>
+                <p>تقليل وقت المتابعة اليومية</p>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p>
+                “LabBridge غيّر طريقة إدارتنا للطلبات. لا فقدان، لا تأخير، كل شيء واضح من أول لحظة.”
+            </p>
+            <strong>— مدير معمل أسنان، الرياض</strong>
+        </div>
+    </div>
+</section>
+
+
+    <section id="workflow" class="workflow">
+        <div class="container">
+            <h2 class="section-title">كيف تُدار الطلبات في LabBridge؟</h2>
+
+            <div class="workflow-line">
+                <div class="workflow-step">
+                    <div class="step-icon-wrapper"><i class="fas fa-notes-medical"></i></div>
+                    <h4>1. الطبيب يطلب</h4>
+                   <p>إنشاء طلب رقمي كامل من العيادة مع جميع التفاصيل.</p>
+                </div>
+                <div class="workflow-step">
+                     <div class="step-icon-wrapper"><i class="fas fa-qrcode"></i></div>
+                    <h4>2. طباعة QR Code</h4>
+                    <p>رمز QR فريد يُلصق على الطبعة لمنع الضياع.</p>
+                </div>
+                <div class="workflow-step">
+                     <div class="step-icon-wrapper"><i class="fas fa-cogs"></i></div>
+                    <h4>3. الفني يستلم</h4>
+                   <p>الفني المختص يستلم الطلب حسب تخصصه مباشرة.</p>
+
+                </div>
+                <div class="workflow-step">
+                     <div class="step-icon-wrapper"><i class="fas fa-tasks"></i></div>
+                    <h4>4. تتبع المراحل</h4>
+                    <p>تنتقل الحالة بين الفنيين حسب التخصص، مع تحديثات فورية للطبيب وصاحب المعمل.</p>
+                </div>
+                <div class="workflow-step">
+                     <div class="step-icon-wrapper"><i class="fas fa-bell"></i></div>
+                    <h4>5. إشعار بالإكتمال</h4>
+                    <p>يتم إرسال إشعار تلقائي للطبيب والمندوب فور اكتمال العمل على الحالة.</p>
+                </div>
+                <div class="workflow-step">
+                     <div class="step-icon-wrapper"><i class="fas fa-shipping-fast"></i></div>
+                    <h4>6. المندوب يسلم</h4>
+                  <p>استلام وتوصيل منظم حتى وصول الطلب للعيادة.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+<!--      NEW UNIFIED DOWNLOAD PLATFORMS SECTION     -->
+<!-- ============================================= -->
+<section id="platforms-download" class="platforms-download" style="background-color: #f8fafc; padding: 80px 0;">
+
+    <div class="container">
+        <!-- العنوان الرئيسي للقسم -->
+        <h2 class="section-title">نظام واحد.. منصات متعددة</h2>
+        <p class="section-subtitle">حمّل التطبيق الآن وابدأ في تنظيم عملك من أي مكان.</p>
+
+        <!-- حاوية جديدة للبطاقات -->
+        <div class="platform-cards-container" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px;">
+
+            <!-- بطاقة تطبيقات الجوال -->
+            <div class="platform-card" style="text-align: center; padding: 30px; border: 1px solid #e5e7eb; border-radius: 20px; background: #fff; max-width: 400px;">
+                <div class="platform-icons" style="font-size: 48px; color: #0f172a;">
+                    <i class="fab fa-apple" style="margin: 0 10px;"></i>
+                    <i class="fab fa-android" style="margin: 0 10px;"></i>
+                </div>
+                <p style="margin: 20px 0; font-weight: 600;">تطبيق الجوال لجميع المستخدمين</p>
+                
+                <!-- أزرار تحميل تطبيقات الجوال -->
+                <div class="app-buttons" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i>
+                        <div><span>متوفر على</span><strong>App Store</strong></div>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div><span>احصل عليه من</span><strong>Google Play</strong></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- بطاقة تطبيق الويندوز -->
+            <div class="platform-card" style="text-align: center; padding: 30px; border: 1px solid #e5e7eb; border-radius: 20px; background: #fff; max-width: 400px;">
+                <div class="platform-icons" style="font-size: 48px; color: #0f172a;">
+                    <i class="fab fa-windows"></i>
+                </div>
+                <p style="margin: 20px 0; font-weight: 600;">نسخة Windows للأطباء والفنيين والمحاسبين (لدعم ملفات STL والمحاسبة)</p>
+                
+                <!-- زر تحميل تطبيق الويندوز -->
+                <div class="app-buttons" style="margin-top: 20px;">
+                     <a href="#" class="app-btn">
+                        <i class="fab fa-windows"></i>
+                        <div><span>تحميل لـ</span><strong>Windows</strong></div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="pricing" class="pricing">
+    <div class="container">
+        <h2 class="section-title">خطط تناسب طموحك</h2>
+        <div class="price-cards-container">
+            <!-- الباقة الاحترافية -->
+            <div class="price-card">
+                <h3>الباقة الشهرية</h3>
+                <div class="price">399<span> ريال / شهرياً</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 14 يوم تجربة مجانية كاملة</li>
+                    <li><i class="fas fa-check"></i> عدد غير محدود من العيادات</li>
+                    <li><i class="fas fa-check"></i> إصدار فواتير متوافقة مع ZATCA</li>
+                    <li><i class="fas fa-check"></i> دعم ملفات STL على Windows</li>
+                    <li><i class="fas fa-check"></i> تتبع كامل للمناديب والفنيين</li>
+                </ul>
+                <a href="#" class="btn-primary">ابدأ التجربة الآن</a>
+            </div>
+            <!-- يمكنك إضافة المزيد من الباقات هنا -->
+            <div class="price-card">
+                <h3>الباقة السنوية</h3>
+                <div class="price">3999<span> ريال / سنوياً</span></div>
+               <ul>
+                    <li><i class="fas fa-check"></i> 14 يوم تجربة مجانية كاملة</li>
+                    <li><i class="fas fa-check"></i> عدد غير محدود من العيادات</li>
+                    <li><i class="fas fa-check"></i> إصدار فواتير متوافقة مع ZATCA</li>
+                    <li><i class="fas fa-check"></i> دعم ملفات STL على Windows</li>
+                    <li><i class="fas fa-check"></i> تتبع كامل للمناديب والفنيين</li>
+                </ul>
+                <a href="#" class="btn-primary">ابدأ التجربة الآن</a>
+            </div>
+            <!-- أضف المزيد من الباقات حسب الحاجة -->
+        </div>
+    </div>
+</section>
+
+
+    <section class="compliance">
+      <div class="container">
+        <h2 class="section-title">تنويه هام</h2>
+        <p style="text-align:center; max-width:800px; margin:auto;">
+          LabBridge هو نظام إداري تقني لتنظيم العمليات داخل معامل الأسنان. النظام لا يقدم أي خدمات طبية أو تشخيصية أو علاجية. جميع الأعمال والمسؤوليات الطبية والقانونية تقع على عاتق الأطباء والمعامل المسجلة.
+        </p>
+      </div>
+    </section>
+    <!-- ============================= -->
+<!--             FAQ               -->
+<!-- ============================= -->
+<section id="faq" class="faq">
+    <div class="container">
+        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <div class="faq-container">
+            <details class="faq-item hidden-anim">
+                <summary class="faq-question">
+                    هل التجربة المجانية تتطلب بطاقة ائتمانية؟
+                </summary>
+                <div class="faq-answer">
+                    <p>
+                        لا على الإطلاق. يمكنك بدء تجربتك المجانية لمدة 14 يومًا والاستمتاع بكامل مميزات النظام بدون الحاجة لإدخال أي بيانات بطاقة ائتمانية.
+                    </p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-question">
+                    هل النظام متوافق مع متطلبات هيئة الزكاة والضريبة والجمارك (ZATCA)؟
+                </summary>
+                <div class="faq-answer">
+                    <p>
+                        نعم، نظام الفوترة في LabBridge مصمم ليكون متوافقًا تمامًا مع متطلبات هيئة الزكاة والضريبة والجمارك، مما يسهل عليك إصدار فواتير نظامية بدون أي تعقيدات.
+                    </p>
+                </div>
+            </details>
+            <details class="faq-item">
+                <summary class="faq-question">
+                    هل يمكنني تحديد أسعار مختلفة لكل عيادة أو طبيب؟
+                </summary>
+                <div class="faq-answer">
+                    <p>
+                        بالتأكيد. واحدة من أهم مميزات LabBridge هي المرونة في تحديد قوائم أسعار مخصصة. يمكنك بسهولة إنشاء قائمة أسعار خاصة لكل طبيب أو عيادة تتعامل معها.
+                    </p>
+                </div>
+            </details>
+             <details class="faq-item">
+                <summary class="faq-question">
+                    ما هي المنصات التي يعمل عليها نظام LabBridge؟
+                </summary>
+                <div class="faq-answer">
+                    <p>
+                        النظام متاح على منصات متعددة لتغطية كافة احتياجاتك. يتوفر كتطبيق جوال (iOS و Android) لجميع المستخدمين، بالإضافة إلى نسخة خاصة بنظام Windows تدعم التعامل المباشر مع ملفات STL والمحاسبة المتقدمة.
+                    </p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 LabBridge - جميع الحقوق محفوظة</p>
+            <div class="footer-links">
+                <a href="#">شروط الخدمة</a> | 
+                <a href="#">سياسة الخصوصية</a>
+            </div>
+           <p class="security-note">
+                <i class="fas fa-shield-alt"></i> 
+                جميع المدفوعات مشفرة ومؤمنة بواسطة شريكنا الرسمي للمبيعات.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
