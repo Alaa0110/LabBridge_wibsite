@@ -12,7 +12,7 @@ html {
     --light: #f8fafc;
     --text: #334155;
     --border: #e5e7eb;
-    --glass: rgba(255, 255, 255, 0.75);
+    --glass: rgba(255, 255, 255, 0.85);
 }
 
 /* ============================= */
@@ -52,10 +52,17 @@ body {
 }
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
-    font-size: 36px;
+    margin-bottom: 20px;
+    font-size: 32px;
     font-weight: 800;
     color: var(--secondary);
+}
+.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-size: 18px;
+    color: #64748b;
 }
 
 /* ============================= */
@@ -76,48 +83,25 @@ header .container {
     justify-content: space-between;
     align-items: center;
 }
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .logo-img {
-    height: 60px;
-    width: auto;
-    max-width: 100%;
+    height: 55px;
 }
 nav ul {
     display: flex;
     list-style: none;
-}
-nav ul li {
-    margin-left: 30px;
+    gap: 15px;
 }
 nav ul li a {
     text-decoration: none;
     color: var(--text);
     font-weight: 700;
-    transition: 0.3s;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 nav ul li a:hover {
     color: var(--primary);
-}
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav ul {
-        padding: 0; /* Reset padding for mobile */
-        margin-top: 15px;
-    }
-    nav ul li {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .logo-img {
-        height: 50px;
-    }
+    background-color: #f0f4ff;
 }
 
 /* ============================= */
@@ -126,27 +110,30 @@ nav ul li a:hover {
 .btn-primary {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: #fff;
-    padding: 12px 30px;
+    padding: 12px 25px;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 700;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
     transition: all 0.3s ease;
+    display: inline-block;
     border: none;
+    cursor: pointer;
 }
 .btn-primary:hover {
     transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
 }
 .btn-secondary {
     background: var(--light);
     border: 1px solid var(--border);
     color: var(--secondary);
-    padding: 10px 25px;
-    border-radius: 8px;
+    padding: 12px 25px;
+    border-radius: 12px;
     text-decoration: none;
-    margin-right: 10px;
+    font-weight: 700;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 .btn-secondary:hover {
     background: #fff;
@@ -158,23 +145,23 @@ nav ul li a:hover {
 /*              HERO             */
 /* ============================= */
 .hero {
-    padding: 100px 0 50px;
-    text-align: center;
+    padding: 80px 0;
     background: radial-gradient(circle at 80% 0%, #e0f2fe 0%, transparent 40%), linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    overflow: hidden;
 }
 .hero-grid {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 }
 .hero-content {
     flex: 1;
     text-align: right;
 }
 .hero-content h1 {
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 800;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
     color: var(--secondary);
     margin-bottom: 20px;
 }
@@ -183,29 +170,29 @@ nav ul li a:hover {
     font-size: 18px;
     margin: 0 0 40px;
     color: #64748b;
+    max-width: 500px;
 }
 .hero-btns { 
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 15px;
-    flex-wrap: wrap; /* للسماح للأزرار بالالتفاف على الشاشات الصغيرة جدا */
+    flex-wrap: wrap;
 }
 .hero-mockup {
     flex: 1.2;
     position: relative;
-    min-width: 0; /* Fix flexbox overflow issue */
 }
 .mockup-laptop {
-    width: 130%;
+    width: 120%;
     height: auto;
     filter: drop-shadow(0px 25px 40px rgba(0, 0, 0, 0.1));
 }
 .mockup-phone {
     position: absolute;
-    width: 50%;
+    width: 40%;
     height: auto;
-    top: 30%;
-    right: 10%;
+    top: 35%;
+    right: 5%;
     filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.15));
     transition: transform 0.3s ease;
     z-index: 10;
@@ -214,63 +201,17 @@ nav ul li a:hover {
     transform: translateY(-10px) scale(1.05);
 }
 
-/* === تعديلات قسم Hero للهواتف === */
-@media (max-width: 992px) {
-    .hero-grid {
-        /* التعديل الرئيسي: عكس الترتيب ليظهر المحتوى أولاً ثم الصورة */
-        flex-direction: column-reverse;
-        gap: 40px;
-    }
-    .hero-content {
-        /* توسيط المحتوى بالكامل في شاشة الهاتف */
-        text-align: center;
-    }
-    .hero-btns {
-        /* توسيط الأزرار */
-        justify-content: center;
-    }
-    .hero-mockup {
-        width: 100%;
-        margin-top: 30px;
-    }
-    .mockup-laptop {
-        width: 100%; /* جعل صورة اللابتوب بحجم الشاشة */
-    }
-    .mockup-phone {
-        width: 40%; /* تصغير حجم الهاتف قليلاً */
-        top: 25%;
-        right: 5%;
-    }
-}
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 36px; /* حجم عنوان مناسب أكثر للهاتف */
-    }
-    .hero-content p {
-        font-size: 16px;
-    }
-    .mockup-phone {
-        /* جعل الهاتف يظهر تحت اللابتوب بدلاً من أن يكون فوقه */
-        position: relative;
-        width: 70%;
-        top: auto;
-        right: auto;
-        margin: -15% auto 0; /* تعديل الهامش لدمج الهاتف مع اللابتوب بشكل أفضل */
-    }
-}
 /* ============================= */
 /*           FEATURES            */
 /* ============================= */
-.features {
-    padding: 80px 0;
-}
+.features { padding: 80px 0; }
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 .feature-card {
-    padding: 35px 30px;
+    padding: 35px;
     background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 20px;
@@ -278,8 +219,8 @@ nav ul li a:hover {
     text-align: center;
 }
 .feature-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
 }
 .feature-card h3 { 
     margin: 20px 0 10px;
@@ -293,11 +234,7 @@ nav ul li a:hover {
 /* ============================= */
 /*         SOCIAL PROOF          */
 /* ============================= */
-.social-proof {
-    padding: 80px 0;
-    background: #fff;
-    text-align: center;
-}
+.social-proof { padding: 80px 0; background-color: var(--light); }
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -307,30 +244,18 @@ nav ul li a:hover {
 .stat-box {
     text-align: center;
     padding: 30px;
-    border-radius: 20px;
-    background: var(--light);
-    border: 1px solid var(--border);
-    transition: all 0.35s ease;
-}
-.stat-box:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
 }
 .stat-box h3 {
     font-size: 42px;
     font-weight: 800;
     color: var(--primary);
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .stat-box p {
     font-size: 16px;
     font-weight: 600;
     color: #64748b;
 }
-
-/* ============================= */
-/*          TESTIMONIAL          */
-/* ============================= */
 .testimonial {
     max-width: 700px;
     margin: auto;
@@ -338,9 +263,6 @@ nav ul li a:hover {
     font-size: 18px;
     color: var(--secondary);
     padding: 30px;
-    background: #f9fafb;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 .testimonial strong {
     display: block;
@@ -352,10 +274,7 @@ nav ul li a:hover {
 /* ============================= */
 /*           WORKFLOW            */
 /* ============================= */
-.workflow {
-    padding: 80px 0;
-    background-color: var(--light);
-}
+.workflow { padding: 80px 0; }
 .workflow-line {
     display: flex;
     justify-content: space-between;
@@ -377,13 +296,15 @@ nav ul li a:hover {
     width: 15%;
     position: relative;
     z-index: 2;
+    background-color: #fff; /* Use page background to hide line */
+    padding: 0 5px;
 }
 .step-icon-wrapper {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background-color: #fff;
-    border: 2px solid #cbd5e1;
+    border: 3px solid #cbd5e1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -393,66 +314,90 @@ nav ul li a:hover {
 .workflow-step:hover .step-icon-wrapper {
     transform: scale(1.1);
     border-color: var(--primary);
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
 }
-.step-icon-wrapper i {
-    font-size: 32px;
-    color: var(--primary);
+.step-icon-wrapper i { font-size: 32px; color: var(--primary); }
+.workflow-step h4 { font-size: 16px; margin-bottom: 8px; font-weight: 700; }
+.workflow-step p { font-size: 14px; color: #64748b; }
+
+
+/* ============================================= */
+/*         UNIFIED DOWNLOAD PLATFORMS SECTION      */
+/* ============================================= */
+.platforms-download {
+    background-color: #f8fafc;
+    padding: 80px 0;
 }
-.workflow-step h4 {
-    font-size: 16px;
+.platform-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.platform-card {
+    text-align: center;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: #fff;
+    max-width: 400px;
+    flex: 1;
+    min-width: 300px;
+}
+.platform-icons {
+    font-size: 48px;
     color: var(--secondary);
-    margin-bottom: 8px;
-    font-weight: 700;
 }
-.workflow-step p {
-    font-size: 14px;
-    color: #64748b;
-    line-height: 1.5;
+.platform-icons i {
+    margin: 0 10px;
+}
+.platform-card p {
+    margin: 20px 0;
+    font-weight: 600;
+    min-height: 40px;
+}
+.app-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background-color: var(--secondary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--secondary);
+}
+.app-btn:hover {
+    background-color: #fff;
+    color: var(--secondary);
+}
+.app-btn i {
+    font-size: 28px;
+}
+.app-btn div {
+    text-align: right;
+}
+.app-btn span {
+    display: block;
+    font-size: 12px;
+    line-height: 1;
+}
+.app-btn strong {
+    font-size: 18px;
+    line-height: 1;
 }
 
-/* === تعديلات قسم Workflow للهواتف === */
-@media (max-width: 992px) {
-    .workflow-line {
-        /* تحويل الخطوات إلى عمود */
-        flex-direction: column;
-        align-items: center; /* توسيط الخطوات عمودياً */
-        margin-top: 20px;
-        gap: 30px; /* إضافة مسافة بين الخطوات */
-    }
-    .workflow-line::before {
-        /* تحويل الخط الأفقي إلى عمودي */
-        left: 50%;
-        transform: translateX(-50%);
-        top: 40px; /* بداية الخط */
-        bottom: 40px; /* نهاية الخط */
-        width: 2px;
-        height: auto;
-        right: auto;
-    }
-    .workflow-step {
-        width: 80%; /* تحديد عرض مناسب للخطوة */
-        max-width: 300px;
-    }
-}
-@media (max-width: 768px) {
-    .step-icon-wrapper {
-        width: 60px;
-        height: 60px;
-    }
-    .workflow-line::before {
-        top: 30px;
-        bottom: 30px;
-    }
-}
 /* ============================= */
 /*            PRICING            */
 /* ============================= */
-.pricing {
-    padding: 80px 0;
-    background: var(--light);
-    text-align: center;
-}
+.pricing { padding: 80px 0; background: var(--light); }
 .price-cards-container {
     display: flex;
     justify-content: center;
@@ -461,29 +406,27 @@ nav ul li a:hover {
     margin-top: 30px;
 }
 .price-card {
-    width: 100%;
-    max-width: 350px; /* تعديل العرض ليتناسب بشكل أفضل */
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
     background: #fff;
-    padding: 45px;
+    padding: 40px;
     border-radius: 24px;
     text-align: center;
-    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.1);
     border: 1px solid var(--border);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 .price-card:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
     border-color: var(--primary);
-}
-.price-card .btn-primary {
-    margin-top: auto; /* يدفع الزر دائمًا إلى أسفل البطاقة */
 }
 .price {
     font-size: 48px;
     font-weight: 800;
-    margin: 20px 0;
+    margin: 15px 0;
     color: var(--primary);
 }
 .price span {
@@ -493,7 +436,7 @@ nav ul li a:hover {
 }
 .price-card ul {
     list-style: none;
-    margin: 30px 0;
+    margin: 25px 0;
     padding: 0;
     text-align: right;
 }
@@ -505,51 +448,17 @@ nav ul li a:hover {
     color: #10b981;
     margin-left: 10px;
 }
-@media (max-width: 768px) {
-    .price-card {
-        padding: 30px;
-    }
+.price-card .btn-primary {
+    margin-top: auto; /* Push button to the bottom */
 }
 
 /* ============================= */
-/*         APP DOWNLOAD          */
+/*         OTHER SECTIONS        */
 /* ============================= */
-.app-download {
-    padding: 80px 0;
-    background-color: var(--light);
-    text-align: center;
-}
-.app-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-.app-btn {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: var(--secondary);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    border: 1px solid var(--secondary);
-}
-.app-btn:hover {
-    background-color: #fff;
-    color: var(--secondary);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+.compliance { padding: 60px 0; }
+.compliance p { text-align: center; max-width: 800px; margin: auto; }
 
-/* ============================= */
-/*              FAQ              */
-/* ============================= */
-.faq {
-    padding: 80px 0;
-    background-color: #fff;
-}
+.faq { padding: 80px 0; }
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
@@ -557,10 +466,10 @@ nav ul li a:hover {
 }
 .faq-item {
     border-bottom: 1px solid var(--border);
-    padding: 20px 0;
+    padding: 15px 0;
 }
 .faq-question {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--secondary);
     cursor: pointer;
@@ -570,9 +479,7 @@ nav ul li a:hover {
     align-items: center;
     width: 100%;
 }
-.faq-question::-webkit-details-marker {
-    display: none;
-}
+.faq-question::-webkit-details-marker { display: none; }
 .faq-question::after {
     content: '\\f078';
     font-family: 'Font Awesome 6 Free';
@@ -581,15 +488,8 @@ nav ul li a:hover {
     color: var(--primary);
     transition: transform 0.3s ease;
 }
-.faq-item[open] > .faq-question::after {
-    transform: rotate(180deg);
-}
-.faq-answer {
-    padding: 20px 10px 0;
-    color: var(--text);
-    line-height: 1.8;
-    font-size: 16px;
-}
+.faq-item[open] > .faq-question::after { transform: rotate(180deg); }
+.faq-answer { padding: 20px 10px 0; line-height: 1.8; }
 
 /* ============================= */
 /*            FOOTER             */
@@ -603,15 +503,96 @@ footer {
 .footer-links { margin: 20px 0; }
 .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
 .footer-links a:hover { color: #fff; }
-.security-note {
-    margin-top: 20px;
-    color: #94a3b8;
-    font-size: 14px;
+.security-note { margin-top: 20px; color: #94a3b8; font-size: 14px; }
+.security-note i { color: var(--accent); margin-right: 5px; }
+
+/* =================================================================== */
+/* =================== RESPONSIVE MEDIA QUERIES ====================== */
+/* =================================================================== */
+
+/* For Tablets and Smaller Desktops */
+@media (max-width: 992px) {
+    .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .hero-btns {
+        justify-content: center;
+    }
+    .hero-mockup {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .mockup-laptop {
+        width: 100%;
+    }
+    .mockup-phone {
+        width: 35%;
+        top: 30%;
+        right: 10%;
+    }
+    .workflow-line {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .workflow-line::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+        bottom: 20px;
+        width: 3px;
+        height: auto;
+        right: auto;
+    }
+    .workflow-step {
+        width: 80%;
+        max-width: 300px;
+        padding: 10px 0;
+        background-color: #fff;
+    }
 }
-.security-note i {
-    color: var(--accent);
-    margin-left: 5px;
-}
-.security-note strong {
-    color: #e2e8f0;
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+    .section-title { font-size: 28px; }
+    .section-subtitle { font-size: 16px; }
+
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    header nav {
+        order: 3; /* Change order to put nav last */
+        width: 100%;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    header .header-cta {
+        order: 2;
+    }
+    
+    .hero-content h1 { font-size: 34px; }
+    .hero-content p { font-size: 16px; }
+    
+    .mockup-phone {
+        position: relative;
+        width: 60%;
+        margin: -20% auto 0;
+        right: auto;
+        top: auto;
+    }
+
+    .workflow-step { background-color: transparent; }
+    .workflow-line::before { background-color: transparent; } /* Hide line on mobile */
 }
