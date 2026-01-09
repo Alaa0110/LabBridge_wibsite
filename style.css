@@ -71,7 +71,7 @@ header {
     background: var(--glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 5px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
@@ -136,12 +136,7 @@ nav ul li a:hover {
     .logo-img {
         height: 50px;
     }
-
-    .btn-primary {
-        margin-top: 20px;
-    }
 }
-
 /* ============================= */
 /*           BUTTONS             */
 /* ============================= */
@@ -161,7 +156,6 @@ nav ul li a:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 
 .btn-secondary {
     background: var(--light);
@@ -184,28 +178,16 @@ nav ul li a:hover {
 /*             HERO              */
 /* ============================= */
 .hero {
-    padding: 100px 0 60px;
-    text-align: center;
-    background:
-        radial-gradient(circle at 50% 0%, #e0f2fe 0%, transparent 35%),
-        linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-}
-
-/* ============================= */
-/*       NEW 2-COLUMN HERO       */
-/* ============================= */
-.hero {
     padding: 100px 0;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 80% 0%, #e0f2fe 0%, transparent 40%),
-        linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    text-align: center;
+    background: radial-gradient(circle at 80% 0%, #e0f2fe 0%, transparent 40%), linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 }
 
 .hero-grid {
     display: flex;
     align-items: center;
     gap: 40px;
+    flex-wrap: wrap;
 }
 
 .hero-content {
@@ -233,10 +215,6 @@ nav ul li a:hover {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
-}
-
-.btn-secondary {
-    margin-right: 0;
 }
 
 .hero-mockup {
@@ -268,11 +246,7 @@ nav ul li a:hover {
 @media (max-width: 992px) {
     .hero-grid {
         flex-direction: column;
-    }
-
-    .hero-content {
         text-align: center;
-        margin-bottom: 60px;
     }
 
     .hero-btns {
@@ -285,18 +259,8 @@ nav ul li a:hover {
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 80px 0; /* قلل المسافة في الأعلى والأسفل */
-    }
-
-    .hero-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .hero-content h1 {
         font-size: 30px;
-        margin-bottom: 15px;
     }
 
     .hero-btns {
@@ -304,9 +268,10 @@ nav ul li a:hover {
         margin-top: 20px;
     }
 
-    .hero-mockup {
-        width: 100%;
-        text-align: center;
+    .mockup-phone {
+        position: relative;
+        width: 80%;
+        margin-top: 20px;
     }
 
     .mockup-laptop {
@@ -314,18 +279,14 @@ nav ul li a:hover {
         height: auto;
         filter: none;
     }
-
-    .mockup-phone {
-        position: relative;
-        width: 70%;
-        margin-top: -20px;
-    }
 }
 
 /* ============================= */
 /*           FEATURES            */
 /* ============================= */
-.features { padding: 80px 0; }
+.features {
+    padding: 80px 0;
+}
 
 .features-grid {
     display: grid;
@@ -345,6 +306,21 @@ nav ul li a:hover {
 .feature-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 { 
+    margin: 20px 0 10px;
+    font-size: 20px; 
+}
+.feature-card i { 
+    font-size: 36px; 
+    color: var(--primary); 
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .feature-card h3 { margin: 20px 0 10px; font-size: 20px; }
@@ -588,7 +564,7 @@ nav ul li a:hover {
 }
 
 /* ============================= */
-/*            FOOTER             */
+/*           FOOTER             */
 /* ============================= */
 footer {
     padding: 60px 0;
@@ -600,19 +576,37 @@ footer {
 .footer-links { margin: 20px 0; }
 .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 10px; transition: color 0.3s; }
 .footer-links a:hover { color: #fff; }
+
 .security-note {
     margin-top: 20px;
     color: #94a3b8;
     font-size: 14px;
 }
+
 .security-note i {
     color: var(--accent);
     margin-left: 5px;
 }
+
 .security-note strong {
     color: #e2e8f0;
 }
 
+/* ============================= */
+/*         RESPONSIVE            */
+/* ============================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 /* ============================= */
 /*           APP DOWNLOAD        */
 /* ============================= */
