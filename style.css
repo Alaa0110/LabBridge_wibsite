@@ -494,6 +494,54 @@ nav ul li a:hover {
     color: #10b981;
     margin-left: 10px;
 }
+/* ============================= */
+/* تحسين لعرض الواجهة على الهواتف الصغيرة */
+/* ============================= */
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 32px; /* تقليل حجم العنوان */
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .feature-card {
+        padding: 25px 15px;
+        font-size: 14px;
+    }
+
+    .price-card {
+        width: 100%;
+        padding: 30px;
+    }
+
+    /* تحسين توزيع البطاقات في قسم الـ Features */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mockup-laptop {
+        width: 120%;
+    }
+
+    /* أزرار تحميل التطبيقات */
+    .app-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
 
 /* ============================= */
 /*         RESPONSIVE            */
